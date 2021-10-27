@@ -1,0 +1,11 @@
+{
+  "mainPrefix": "",
+  "dest": "./gen/",
+  "db": {
+    "host": "localhost",
+    "user": "postgres",
+    "password": "a__password_sadf54re3",
+    "port": 5432,
+    "database": "testdb"
+  }
+}

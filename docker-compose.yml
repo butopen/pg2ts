@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+
+  db:
+    container_name: pg2ts-db
+    image: postgres:13.1-alpine
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    volumes:
+      - ./pgdata:/postgres-data1
+    environment:
+      POSTGRES_PASSWORD: a__password_sadf54re3
+      PGDATA: /postgres-data1
+
+  adminer:
+    container_name: pg2ts-adminer
+    image: adminer
+    restart: always
+    ports:
+      - "5430:8080"
