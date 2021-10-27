@@ -88,7 +88,7 @@ this.knex = knex({
 ...
 ```
 
-##Documentation
+## Documentation
 
 ```npx pg2ts --config pg2ts.json```
 
@@ -114,7 +114,7 @@ Running this code will generate the desired files.
 [//]: # (###Generate at every change and make it part of your development process
 npm install + package.json task + watch...)
 
-###Quick test
+### Quick test
 You may find a docker-compose.yml file in this repo to start a postgres DB
 with the same data as the json above 😉
 
@@ -144,11 +144,11 @@ To stop the DB:
 
 ```docker-compose down```
 
-##Requisites
+## Requisites
 
 A postgres DB
 
-##Benefits
+## Benefits
 Obvious benefits are:
 - less bug related to typos
 - autocomplete
