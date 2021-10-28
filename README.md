@@ -1,4 +1,13 @@
 # pg2ts
+
+
+- [Use cases](#use-cases)
+- [The problem](#the-problem)
+- [Documentation](#documentation)
+- [Requisites](#requisites)
+- [Benefits](#benefits)
+- [About](#why-we-made-it)
+
 Convert Postgres Tables to Typescript constants to be used in your SQL queries with a single command:
 
 ```npx pg2ts --config pg2ts.json```
@@ -114,7 +123,7 @@ Running this code will generate the desired files.
 [//]: # (###Generate at every change and make it part of your development process
 npm install + package.json task + watch...)
 
-### Quick test
+### Quick test (using docker and docker-compose)
 You may find a docker-compose.yml file in this repo to start a postgres DB
 with the same data as the json above 😉
 
