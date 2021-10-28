@@ -123,7 +123,7 @@ To start the local DB, copy the `docker-compose.yml` file in a folder and run:
 ```docker-compose up```
 
 Then create some table by going to `localhost:5430` and logging in with the 
-following credentials (copy the password from above):
+credentials above in the json:
 
 ![Login to the DB](README/shot1.jpg)
 
@@ -138,7 +138,37 @@ CREATE TABLE IF NOT EXISTS "users" (
   "data" json NOT NULL
 );
 ```
+After that, run the command:
 
+`npx pg2ts --config pg2ts.json`
+
+and the file testdb-tables.ts will be generated:
+
+```typescript
+
+
+/**
+ * AUTO-GENERATED FILE @ Wed, 27 Oct 2021 17:50:44 GMT
+ */
+
+
+
+export interface Users { 
+	id: number
+	name: string
+	data: unknown 
+}
+
+export interface TestdbTables {
+    users: Users
+}
+
+export const TestdbTablesData = {
+        tableNames: {users: "users"}, 
+        users: {tableName: "users", id: "users.id",name: "users.name",data: "users.data"}
+    }
+    
+```
 
 To stop the DB:
 
@@ -156,3 +186,8 @@ Obvious benefits are:
 Less obvious benefits:
 - you have a shot of your DB into git
 - when the DB changes, part of your code having errors gets notified by the compiler
+
+
+## Why we made it
+I believe that plain SQL is the fastest way to go. But often you write a statement just to discover a 
+typo only after you try it at runtime. With this lib our team at [butopen.com](butopen.com) saved hours a week.
