@@ -199,4 +199,4 @@ Less obvious benefits:
 
 ## Why we made it
 I believe that plain SQL is the fastest way to go. But often you write a statement just to discover a 
-typo only after you try it at runtime. With this lib our team at [butopen.com](butopen.com) saved hours a week.
+typo only after you try it at runtime. With this lib our team at _butopen_ saved hours a week.
