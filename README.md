@@ -24,17 +24,17 @@ Well, pg2ts is here for you. Keep reading.
 
 ## The problem
 
-SQL is still the best way to query & CRUD a relational databases.
+SQL is still the best way to query & CRUD relational databases.
 
 If you use typescript, then it would be great to make safe queries, 
-without the burden of an orm.
+without the burden of an ORM.
 
 The ideal solution would be to write the SQL in plain text and have 
 a tool to figure out if everything is ok (syntax, names, etc.)
 
 We are not there yet, but we are not far away.
 
-The best solution for our team was knex (a library to execute query in JS).
+The best solution for our team was knex (a library to execute SQL queries in JS).
 
 However, Knex is missing the part about table and column names.
 
@@ -131,7 +131,7 @@ To start the local DB, copy the `docker-compose.yml` file in a folder and run:
 
 ```docker-compose up```
 
-Then create some table by going to `localhost:5430` and logging in with the 
+Then create some tables by going to `localhost:5430` and logging in with the 
 credentials above in the json:
 
 ![Login to the DB](README/shot1.jpg)
@@ -188,7 +188,7 @@ To stop the DB:
 A postgres DB
 
 ## Benefits
-Obvious benefits are:
+The obvious benefits are:
 - less bug related to typos
 - autocomplete
 
