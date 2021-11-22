@@ -59,6 +59,23 @@ export const typescriptTablesConst = async (db: Database, tables: string[], tabl
     }`;
 }
 
+// TODO: generate CRUD queries ex. `insert into ${this.tableName} values(DEFAULT,$1,$2,$3,$4,$5,$6) returning userid `
+export const typescriptTablesCRUD = async (db: Database, tables: string[], tableSchema: string, mainPrefix = ''): Promise<string> => {
+    const fields: string[] = []
+    for (let t of tables) {
+        const tableDefinition = await db.getTableDefinition(tableSchema, t);
+        const columns: string[] = [];
+        for (const col in tableDefinition)
+            columns.push(col)
+        let f = `${t}: {insert: "${t}", ${columns.map(c => `${c}: "${t}.${c}"`).join(",")}}`;
+        fields.push(f);
+    }
+    return `export const ${camelCase(mainPrefix, {pascalCase: true})}CRUDQueries = {
+        tableNames: {${tables.map(t => `${t}: "${t}"`)}}, 
+        ${fields.join(",\n	")}
+    }`;
+}
+
 function tablesListClassName(mainPrefix = ''){
     return camelCase(mainPrefix+"Tables", {pascalCase: true})
 }
