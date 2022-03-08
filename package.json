@@ -1,6 +1,6 @@
 {
   "name": "pg2ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert Postgres Tables to Typescript constants to be used in your SQL queries (best with knex)",
   "main": "dist/index.js",
   "bin": {
@@ -35,7 +35,8 @@
   },
   "homepage": "https://github.com/butopen/pg2ts#readme",
   "dependencies": {
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
     "esbuild": "^0.13.9",

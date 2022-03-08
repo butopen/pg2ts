@@ -99,33 +99,54 @@ this.knex = knex({
 
 ## Documentation
 
+If you run
+
+```npx pg2ts```
+
+the program assumes that an `.env` file is available locally with the following syntax:
+
+```
+DB_HOST=localhost
+DB_PORT=5432
+DB_USRENAME=postgres
+DB_PASSWORD=postgres
+DB_NAME=db
+```
+
+If not, then you can specify all the details in a configuration file as described below:
+
 ```npx pg2ts --config pg2ts.json```
 
 where the `pg2ts.json` file contains:
 
 ```json
 {
-  "mainPrefix": "", //optional
-  "dest": "./gen/", //where you want to generate the *.ts files
-  "db": { // the DB configuration
+  "mainPrefix": "",
+  //optional
+  "dest": "./gen/",
+  //where you want to generate the *.ts files
+  "db": {
+    // the DB configuration
     "host": "localhost",
     "user": "postgres",
     "password": "a__password_sadf54re3",
     "port": 5432,
-    "database": "a_db" 
+    "database": "a_db"
   }
 }
 
 // 👉 Note that if you copy/paste this code you need to delete every comment. Json doesn't like comments 😉 
 ```
+
 Running this code will generate the desired files.
+
 
 [//]: # (###Generate at every change and make it part of your development process
 npm install + package.json task + watch...)
 
 ### Quick test (using docker and docker-compose)
-You may find a docker-compose.yml file in this repo to start a postgres DB
-with the same data as the json above 😉
+
+You may find a docker-compose.yml file in this repo to start a postgres DB with the same data as the json above 😉
 
 To start the local DB, copy the `docker-compose.yml` file in a folder and run:
 
